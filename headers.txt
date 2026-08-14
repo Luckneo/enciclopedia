@@ -1,0 +1,177 @@
+--- EXCEL FILES ---
+
+[FILE]: datos\Eryndor_COMPLETO_PARTE1_Geografia.xlsx
+  Sheet: Hemisferios -> ['ID', 'Nombre', 'Nombre_Corto', 'Descripción']
+  Sheet: Macrorregiones -> ['ID', 'Nombre', 'Nombre_Corto', 'Estado', 'Hemisferio']
+  Sheet: Supercontinentes -> ['ID', 'Nombre', 'Tipo', 'Macrorregión', 'Estado']
+
+[FILE]: datos\Eryndor_COMPLETO_PARTE2_Continentes_Naciones.xlsx
+  Sheet: Continentes -> ['ID', 'Nombre', 'Tipo', 'Supercontinente', 'Estado', 'Naciones']
+  Sheet: Naciones -> ['ID', 'Nombre', 'Sistema_Gobierno', 'Continente', 'Continente_ID', 'Provincias']
+
+[FILE]: datos\Eryndor_COMPLETO_PARTE3A_Provincias.xlsx
+  Sheet: Sheet1 -> ['ID', 'Nombre', 'Nación_ID', 'Nación', 'Sistema', 'Número_Orden']
+
+[FILE]: datos\Eryndor_COMPLETO_PARTE3B_Ciudades_Muestra.xlsx
+  Sheet: Sheet1 -> ['ID', 'Nombre', 'Provincia_ID', 'Provincia', 'Tipo', 'Nación_ID']
+
+[FILE]: datos\Eryndor_COMPLETO_PARTE3C_Villas_Muestra.xlsx
+  Sheet: Sheet1 -> ['ID', 'Nombre', 'Ciudad_ID', 'Ciudad']
+
+[FILE]: datos\Eryndor_COMPLETO_PARTE3D_Aldeas_Muestra.xlsx
+  Sheet: Sheet1 -> ['ID', 'Nombre', 'Villa_ID', 'Villa']
+
+[FILE]: datos\Eryndor_CONSOLIDADO_FINAL (1).xlsx
+  Sheet: 00_Resumen_Ejecutivo -> ['Nivel', 'Cantidad', 'Nombres_Unicos', 'Cobertura']
+  Sheet: 01_Stats_Continente -> ['Continente', 'Naciones', 'Provincias']
+  Sheet: 02_Stats_Gobierno -> ['Sistema_Gobierno', 'Naciones', 'Provincias']
+  Sheet: 03_Ejemplos_Naciones -> ['Nombre', 'Sistema_Gobierno', 'Continente']
+  Sheet: 04_Ejemplos_Provincias -> ['Nombre_Completo', 'Tipo_Division', 'Sistema']
+  Sheet: 05_Ejemplos_Ciudades -> ['Nombre_Completo', 'Tipo_Ciudad', 'Es_Capital_Provincial']
+  Sheet: 06_Ejemplos_Villas -> ['Nombre_Completo', 'Tipo_Villa']
+  Sheet: 07_Ejemplos_Aldeas -> ['Nombre_Completo', 'Tipo_Aldea']
+
+[FILE]: datos\Eryndor_CONSOLIDADO_FINAL.xlsx
+  Sheet: 00_Resumen_Ejecutivo -> ['Nivel', 'Cantidad', 'Nombres_Unicos', 'Cobertura']
+  Sheet: 01_Stats_Continente -> ['Continente', 'Naciones', 'Provincias']
+  Sheet: 02_Stats_Gobierno -> ['Sistema_Gobierno', 'Naciones', 'Provincias']
+  Sheet: 03_Ejemplos_Naciones -> ['Nombre', 'Sistema_Gobierno', 'Continente']
+  Sheet: 04_Ejemplos_Provincias -> ['Nombre_Completo', 'Tipo_Division', 'Sistema']
+  Sheet: 05_Ejemplos_Ciudades -> ['Nombre_Completo', 'Tipo_Ciudad', 'Es_Capital_Provincial']
+  Sheet: 06_Ejemplos_Villas -> ['Nombre_Completo', 'Tipo_Villa']
+  Sheet: 07_Ejemplos_Aldeas -> ['Nombre_Completo', 'Tipo_Aldea']
+
+[FILE]: datos\Eryndor_ESTRUCTURA_COMPLETA_FINAL.xlsx
+  Sheet: 00_Resumen_Ejecutivo -> ['Nivel', 'Cantidad', 'Estado']
+  Sheet: 01_Hemisferios -> ['ID', 'Nombre', 'Nombre_Corto', 'Descripción']
+  Sheet: 02_Macrorregiones -> ['ID', 'Nombre', 'Nombre_Corto', 'Estado', 'Hemisferio']
+  Sheet: 03_Supercontinentes -> ['ID', 'Nombre', 'Tipo', 'Macrorregión', 'Estado']
+  Sheet: 04_Continentes -> ['ID', 'Nombre', 'Tipo', 'Supercontinente', 'Estado', 'Naciones']
+  Sheet: 05_Naciones_240 -> ['ID', 'Nombre', 'Sistema_Gobierno', 'Continente', 'Continente_ID', 'Provincias']
+  Sheet: 06_Provincias_Muestra -> ['ID', 'Nombre', 'Nación_ID', 'Nación', 'Sistema', 'Número_Orden']
+  Sheet: 07_Ciudades_Muestra -> ['ID', 'Nombre', 'Provincia_ID', 'Provincia', 'Tipo', 'Nación_ID']
+  Sheet: 08_Villas_Muestra -> ['ID', 'Nombre', 'Ciudad_ID', 'Ciudad']
+  Sheet: 09_Aldeas_Muestra -> ['ID', 'Nombre', 'Villa_ID', 'Villa']
+
+[FILE]: datos\Eryndor_Estructura_PARTE1_Geografia.xlsx
+  Sheet: Hemisferios -> ['ID', 'Nombre', 'Nombre_Corto', 'Clima_Dominante', 'Macrorregiones']
+  Sheet: Macrorregiones -> ['ID', 'Nombre', 'Nombre_Original', 'Hemisferio', 'Estado', 'Supercontinentes', 'Continentes', 'Naciones', 'Temperatura', 'Vegetación', 'Peligro', 'Altitud', 'Habitantes', 'Profundidad']
+  Sheet: Supercontinentes -> ['ID', 'Nombre', 'Tipo', 'Macrorregión', 'Continentes', 'Estado']
+
+[FILE]: datos\Eryndor_Estructura_PARTE2_Continentes_Naciones.xlsx
+  Sheet: Continentes -> ['ID', 'Nombre', 'Tipo', 'Supercontinente', 'Área_km2', 'Naciones', 'Estado']
+  Sheet: Naciones -> ['ID', 'Nombre', 'Sistema_Gobierno', 'Continente', 'Continente_ID', 'Provincias', 'Ciudades', 'Villas', 'Aldeas']
+
+[FILE]: datos\Eryndor_Estructura_PARTE3_Subdivisiones.xlsx
+  Sheet: Resumen_240_Naciones -> ['Nación_ID', 'Nación', 'Sistema', 'Continente', 'Provincias', 'Ciudades', 'Villas', 'Aldeas', 'Total_Asentamientos']
+  Sheet: Provincias_Ejemplo -> ['ID', 'Nombre', 'Nación_ID', 'Nación', 'Número']
+  Sheet: Ciudades_Ejemplo -> ['ID', 'Nombre', 'Provincia_ID', 'Nación_ID', 'Tipo']
+  Sheet: Villas_Ejemplo -> ['ID', 'Nombre', 'Ciudad_ID', 'Provincia_ID']
+  Sheet: Aldeas_Ejemplo -> ['ID', 'Nombre', 'Villa_ID', 'Ciudad_ID']
+
+[FILE]: datos\Eryndor_FINAL_Aldeas_10pct.xlsx
+  Sheet: Sheet1 -> ['ID', 'Nombre_Completo', 'Nombre_Corto', 'Tipo_Aldea', 'Villa_ID', 'Villa', 'Ciudad_ID', 'Sistema']
+
+[FILE]: datos\Eryndor_FINAL_Ciudades (1).xlsx
+  Sheet: Sheet1 -> ['ID', 'Nombre_Completo', 'Nombre_Corto', 'Tipo_Ciudad', 'Es_Capital_Provincial', 'Provincia_ID', 'Provincia', 'Nacion_ID', 'Sistema']
+
+[FILE]: datos\Eryndor_FINAL_Ciudades.xlsx
+  Sheet: Sheet1 -> ['ID', 'Nombre_Completo', 'Nombre_Corto', 'Tipo_Ciudad', 'Es_Capital_Provincial', 'Provincia_ID', 'Provincia', 'Nacion_ID', 'Sistema']
+
+[FILE]: datos\Eryndor_FINAL_Naciones (1).xlsx
+  Sheet: Sheet1 -> ['ID', 'Nombre', 'Sistema_Gobierno', 'Continente', 'Num_Provincias']
+
+[FILE]: datos\Eryndor_FINAL_Naciones.xlsx
+  Sheet: Sheet1 -> ['ID', 'Nombre', 'Sistema_Gobierno', 'Continente', 'Num_Provincias']
+
+[FILE]: datos\Eryndor_FINAL_Provincias (1).xlsx
+  Sheet: Sheet1 -> ['ID', 'Nombre_Completo', 'Nombre_Corto', 'Tipo_Division', 'Nacion_ID', 'Nacion', 'Sistema', 'Orden']
+
+[FILE]: datos\Eryndor_FINAL_Provincias.xlsx
+  Sheet: Sheet1 -> ['ID', 'Nombre_Completo', 'Nombre_Corto', 'Tipo_Division', 'Nacion_ID', 'Nacion', 'Sistema', 'Orden']
+
+[FILE]: datos\Eryndor_FINAL_Villas.xlsx
+  Sheet: Sheet1 -> ['ID', 'Nombre_Completo', 'Nombre_Corto', 'Tipo_Villa', 'Ciudad_ID', 'Ciudad', 'Provincia_ID', 'Sistema']
+
+[FILE]: datos\Sistema_Biodiversidad_MEGA_EXPANDIDO.xlsx
+  Sheet: 00_Resumen General -> ['Categoría', 'Especies Totales', 'Ejemplos en Excel', 'Sistemas']
+  Sheet: C1_Distribución Rareza -> ['Nivel', 'Nombre', 'Título', 'Porcentaje', 'De 1 Millón', 'Aplicable a']
+  Sheet: C2_Distribución Peligrosidad -> ['Rango', 'Icono', 'Nombre', 'Porcentaje', 'De 1 Millón Criaturas']
+  Sheet: C3_Distribución Captura -> ['Nivel', 'Dificultad', 'Ritual', 'Porcentaje', 'De 1 Millón Criaturas']
+  Sheet: C4_50 Criaturas Generadas -> ['ID', 'Nombre Común', 'Nombre Científico', 'Rareza Nivel', 'Rareza', 'Rareza Título', 'Peligrosidad Nivel', 'Peligrosidad', 'Peligrosidad Icono', 'Captura Nivel', 'Captura', 'Captura Ritual', 'Tamaño', 'Hábitat']
+  Sheet: P1_Sistema Utilidad -> ['Nivel', 'Clasificación', 'Título', 'Descripción']
+  Sheet: P2_Sistema Peligrosidad -> ['Nivel', 'Icono', 'Clasificación', 'Descripción']
+  Sheet: P3_Sistema Cosecha -> ['Nivel', 'Dificultad', 'Método', 'Tiempo']
+  Sheet: P4_50 Plantas Generadas -> ['ID', 'Nombre Común', 'Nombre Científico', 'Utilidad Nivel', 'Utilidad', 'Utilidad Título', 'Peligrosidad Nivel', 'Peligrosidad', 'Peligrosidad Icono', 'Cosecha Nivel', 'Cosecha', 'Cosecha Método', 'Tamaño', 'Hábitat']
+  Sheet: M1_Sistema Poder -> ['Nivel', 'Clasificación', 'Título', 'Descripción']
+  Sheet: M2_Sistema Estabilidad -> ['Nivel', 'Icono', 'Clasificación', 'Descripción']
+  Sheet: M3_Sistema Extracción -> ['Nivel', 'Dificultad', 'Método', 'Tiempo']
+  Sheet: M4_50 Minerales Generados -> ['ID', 'Nombre', 'Fórmula', 'Poder Nivel', 'Poder', 'Poder Título', 'Estabilidad Nivel', 'Estabilidad', 'Estabilidad Icono', 'Extracción Nivel', 'Extracción', 'Extracción Método', 'Dureza Mohs', 'Color']
+  Sheet: Z_Estadísticas Reales -> ['Nivel', 'Criaturas Rareza', 'Criaturas Peligro', 'Criaturas Captura', 'Plantas Utilidad', 'Plantas Peligro', 'Plantas Cosecha', 'Minerales Poder', 'Minerales Estabilidad', 'Minerales Extracción']
+
+[FILE]: datos\Sistema_Clases_Fantasy_FUNCIONAL.xlsx
+  Sheet: Todas las Clases -> ['ID', 'Nivel', 'Rareza', 'Nombre de Clase', 'Categoría Funcional', 'Rol de Juego', 'Descripción Funcional', 'Recomendado para']
+  Sheet: Resumen por Nivel -> ['Nivel', 'Nombre de Rareza', 'Cantidad de Clases', 'Porcentaje del Total', 'Rol de Juego', 'Ejemplos']
+  Sheet: Categorías Funcionales -> ['Categoría Funcional', 'Cantidad de Clases', 'Porcentaje', 'Función en Juego']
+  Sheet: Antes vs Después -> ['Aspecto', 'ANTES (Problemático)', 'DESPUÉS (Funcional)']
+  Sheet: Combatientes -> ['ID', 'Nivel', 'Rareza', 'Nombre de Clase', 'Categoría Funcional', 'Rol de Juego', 'Descripción Funcional', 'Recomendado para']
+  Sheet: Místicos -> ['ID', 'Nivel', 'Rareza', 'Nombre de Clase', 'Categoría Funcional', 'Rol de Juego', 'Descripción Funcional', 'Recomendado para']
+  Sheet: Sanadors -> ['ID', 'Nivel', 'Rareza', 'Nombre de Clase', 'Categoría Funcional', 'Rol de Juego', 'Descripción Funcional', 'Recomendado para']
+  Sheet: Líders -> ['ID', 'Nivel', 'Rareza', 'Nombre de Clase', 'Categoría Funcional', 'Rol de Juego', 'Descripción Funcional', 'Recomendado para']
+  Sheet: Artífices -> ['ID', 'Nivel', 'Rareza', 'Nombre de Clase', 'Categoría Funcional', 'Rol de Juego', 'Descripción Funcional', 'Recomendado para']
+
+[FILE]: datos\Sistema_Completo_ACTUALIZADO (1).xlsx
+  Sheet: Resumen del Sistema -> ['Componente', 'Cantidad', 'Descripción']
+  Sheet: 96 Razas (Sin Artificiales) -> ['id', 'nombre', 'tipo', 'descripcion']
+  Sheet: Tipos de Razas -> ['Tipo', 'Cantidad', 'Ejemplos']
+  Sheet: Niveles Raciales Creativos -> ['Categoría', 'Nivel', 'Nombre del Nivel', 'Descripción', 'Bonificación']
+  Sheet: Ejemplos de Progresión -> ['Raza', 'Categoría', 'Nivel 1', 'Nivel 5', 'Nivel 10', 'Descripción']
+  Sheet: Cambios Realizados -> ['Aspecto', 'Antes', 'Ahora', 'Razón']
+
+[FILE]: datos\Sistema_Completo_Clases_Fantasy_Reformulado (1).xlsx
+  Sheet: Todas las Clases -> ['ID', 'Nivel', 'Rareza', 'Nombre de Clase', 'Descripción', 'Categoría', 'Recomendado para']
+  Sheet: Resumen por Nivel -> ['Nivel', 'Nombre de Rareza', 'Cantidad de Clases', 'Porcentaje del Total', 'Recomendado para', 'Ejemplos']
+  Sheet: Categorías -> ['Categoría', 'Cantidad de Clases', 'Porcentaje']
+  Sheet: Nv1-Común y Frecuente -> ['ID', 'Nivel', 'Rareza', 'Nombre de Clase', 'Descripción', 'Categoría', 'Recomendado para']
+  Sheet: Nv5-Legendario -> ['ID', 'Nivel', 'Rareza', 'Nombre de Clase', 'Descripción', 'Categoría', 'Recomendado para']
+  Sheet: Nv8-Divino -> ['ID', 'Nivel', 'Rareza', 'Nombre de Clase', 'Descripción', 'Categoría', 'Recomendado para']
+  Sheet: Nv12-Absoluta -> ['ID', 'Nivel', 'Rareza', 'Nombre de Clase', 'Descripción', 'Categoría', 'Recomendado para']
+  Sheet: Nv14-Único -> ['ID', 'Nivel', 'Rareza', 'Nombre de Clase', 'Descripción', 'Categoría', 'Recomendado para']
+
+[FILE]: datos\Sistema_Completo_Fantasy_Game.xlsx
+  Sheet: Resumen del Sistema -> ['Componente', 'Cantidad', 'Descripción']
+  Sheet: Habilidades del Grimorio -> ['nombre', 'conceptos', 'num_conceptos', 'tipo', 'categoria', 'damage', 'cost', 'cooldown', 'range', 'descripcion', 'adn']
+  Sheet: Arquetipos y Clases -> ['Nombre', 'Nivel', 'Descripción', 'Conceptos Clave', 'Perfil Físico', 'Perfil Elemental', 'Perfil Mágico', 'Perfil Defensivo', 'Perfil Mental', 'Perfil Social']
+  Sheet: Conceptos Base -> ['Concepto', 'Categoría', 'Descripción']
+  Sheet: Mecánicas del Sistema -> ['Sistema', 'Función', 'Input', 'Output', 'Propósito']
+  Sheet: Progresión del Jugador -> ['Etapa', 'Descripción', 'Ejemplo', 'Sistemas Activos']
+  Sheet: Especificaciones Técnicas -> ['Aspecto', 'Mínimo Requerido', 'Representadas', 'Patrón']
+
+[FILE]: datos\Sistema_Conceptos_Fantasy_COMPLETO.xlsx
+  Sheet: Conceptos (Muestra) -> ['Nombre', 'Categoría', 'Rareza', 'Bonificación', 'Nivel']
+  Sheet: Estadísticas por Categoría -> ['Categoría', 'Total Conceptos', 'Descripción', 'Ejemplos']
+  Sheet: Sistema de Rarezas -> ['Rareza', 'Cantidad', 'Porcentaje', 'Bonificación', 'Descripción']
+  Sheet: Ejemplos Combinaciones -> ['Conceptos', 'Habilidad', 'Descripción', 'Tipo']
+  Sheet: Ejemplos Destinos -> ['Destino', 'Conceptos_Requeridos', 'Bonificaciones']
+  Sheet: Guía del Sistema -> ['Aspecto', 'Descripción']
+
+[FILE]: datos\Sistema_Especialidades_Fantasy_COMPLETO.xlsx
+  Sheet: Especialidades Generadas -> ['ID', 'Nivel_Rareza', 'Nombre_Rareza', 'Clase_Base', 'Especialidad', 'Descripción', 'Nivel_Poder', 'Categoría']
+  Sheet: Estadísticas por Nivel -> ['Nivel', 'Nombre_Rareza', 'Clases_Totales', 'Clases_Muestra', 'Especialidades_por_Clase', 'Especialidades_Generadas', 'Especialidades_Proyectadas', 'Porcentaje_Completado']
+  Sheet: Estadísticas por Categoría -> ['Categoría', 'Cantidad_Generada', 'Porcentaje', 'Proyección_Completa']
+  Sheet: Integración con Conceptos -> ['Clase', 'Especialidad', 'Conceptos_Relacionados', 'Ventajas', 'Desventajas', 'Habilidades_Especiales']
+  Sheet: Nivel 1 Ejemplos -> ['ID', 'Nivel_Rareza', 'Nombre_Rareza', 'Clase_Base', 'Especialidad', 'Descripción', 'Nivel_Poder', 'Categoría']
+  Sheet: Nivel 3 Ejemplos -> ['ID', 'Nivel_Rareza', 'Nombre_Rareza', 'Clase_Base', 'Especialidad', 'Descripción', 'Nivel_Poder', 'Categoría']
+  Sheet: Nivel 5 Ejemplos -> ['ID', 'Nivel_Rareza', 'Nombre_Rareza', 'Clase_Base', 'Especialidad', 'Descripción', 'Nivel_Poder', 'Categoría']
+  Sheet: Nivel 8 Ejemplos -> ['ID', 'Nivel_Rareza', 'Nombre_Rareza', 'Clase_Base', 'Especialidad', 'Descripción', 'Nivel_Poder', 'Categoría']
+  Sheet: Nivel 12 Ejemplos -> ['ID', 'Nivel_Rareza', 'Nombre_Rareza', 'Clase_Base', 'Especialidad', 'Descripción', 'Nivel_Poder', 'Categoría']
+  Sheet: Nivel 14 Ejemplos -> ['ID', 'Nivel_Rareza', 'Nombre_Rareza', 'Clase_Base', 'Especialidad', 'Descripción', 'Nivel_Poder', 'Categoría']
+  Sheet: Sistema Completo -> ['Aspecto', 'Valor Actual', 'Estado']
+  Sheet: Guía de Implementación -> ['Paso', 'Acción', 'Descripción', 'Estado']
+
+[FILE]: datos\Sistema_Subespecies_Mitologicas.xlsx
+  Sheet: Todas las Subespecies -> ['Raza Base', 'Subespecie/Variante', 'Origen Mitológico', 'Descripción']
+  Sheet: Estadísticas por Categoría -> ['Categoría', 'Total Razas', 'Razas con Variantes', 'Total Variantes', 'Promedio por Raza']
+  Sheet: Top Razas con Variantes -> ['Raza', 'Número de Variantes']
+  Sheet: Razas Sin Variantes -> ['Raza', 'Razón']
+  Sheet: Resumen General -> ['Métrica', 'Valor']

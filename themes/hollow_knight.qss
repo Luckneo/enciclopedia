@@ -1,0 +1,378 @@
+/* ============================================================
+   TEMA HOLLOW KNIGHT — EDICIÓN PREMIUM
+   Estilo de elegancia lúgubre, grises ceniza, blancos pálidos y azul metal
+   ============================================================ */
+
+* {
+    font-family: "Georgia", "Times New Roman", serif;
+    font-size: 13px;
+    color: #cfd8dc; /* Blanco pálido */
+}
+
+QMainWindow, QDialog {
+    background-color: #101015; /* Base gris azulado muy oscuro */
+}
+
+QWidget {
+    background-color: transparent;
+}
+
+/* ─── SIDEBAR Y NAVEGACIÓN (INNER ASH SHELL) ──────────────── */
+#sidebar_widget {
+    background-color: #16161f; /* Gris ceniza panel */
+    border-right: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+#sidebar_widget QLabel {
+    color: #e2e2e2;
+}
+
+/* Árbol de navegación (Tree View) */
+QTreeWidget {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    padding: 8px;
+    color: #cfd8dc;
+}
+
+QTreeWidget::item {
+    padding: 8px 12px;
+    border-radius: 8px;
+    min-height: 32px;
+    margin-bottom: 3px;
+}
+
+QTreeWidget::item:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #ffffff;
+}
+
+QTreeWidget::item:selected {
+    background-color: #272736;
+    color: #ffffff;
+    font-weight: bold;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+QTreeWidget::branch {
+    background: transparent;
+}
+
+/* ─── BADGES Y PÍLDORAS ESTATUS ────────────────────────────── */
+#active_planet_badge {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 14px;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 11px;
+    padding: 6px 14px;
+    margin: 6px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+}
+
+/* ─── BOTONES DE ACCIÓN (ESTILO PILL MINIMALISTA) ──────────── */
+QPushButton {
+    background-color: transparent;
+    color: #cfd8dc;
+    font-weight: bold;
+    border: 1px solid #333344;
+    padding: 6px 14px;
+    border-radius: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+QPushButton:hover {
+    background-color: rgba(255, 255, 255, 0.06);
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.25);
+}
+
+QPushButton:pressed {
+    background-color: rgba(255, 255, 255, 0.12);
+}
+
+QPushButton:disabled {
+    background-color: #0d0d12;
+    border-color: #22222d;
+    color: #555566;
+}
+
+/* Botón Guardar / Confirmar / Buscar */
+QPushButton#btn_add_row, QPushButton#btn_save, QPushButton#btn_global_search, QPushButton#btn_save_inspector {
+    background-color: #242433;
+    border: 1px solid #3d3d5c;
+    color: #ffffff;
+}
+
+QPushButton#btn_add_row:hover, QPushButton#btn_save:hover, QPushButton#btn_global_search:hover, QPushButton#btn_save_inspector:hover {
+    background-color: #33334d;
+    border-color: rgba(255, 255, 255, 0.25);
+}
+
+/* Botón Nuevo Planeta (Esmeralda Muted) */
+QPushButton#btn_new_planet {
+    background-color: rgba(16, 185, 129, 0.08);
+    border: 1px solid rgba(16, 185, 129, 0.25);
+    color: #34d399;
+}
+
+QPushButton#btn_new_planet:hover {
+    background-color: rgba(16, 185, 129, 0.16);
+    border-color: rgba(16, 185, 129, 0.4);
+}
+
+/* Botón Clonar Planeta (Cielo Muted) */
+QPushButton#btn_clone_planet {
+    background-color: rgba(14, 165, 233, 0.08);
+    border: 1px solid rgba(14, 165, 233, 0.25);
+    color: #38bdf8;
+}
+
+QPushButton#btn_clone_planet:hover {
+    background-color: rgba(14, 165, 233, 0.16);
+    border-color: rgba(14, 165, 233, 0.4);
+}
+
+/* Botón Eliminar (Gris Quemado) */
+QPushButton#btn_del_row, QPushButton#btn_truncate {
+    background-color: rgba(244, 63, 94, 0.05);
+    border: 1px solid rgba(244, 63, 94, 0.2);
+    color: #f43f5e;
+}
+
+QPushButton#btn_del_row:hover, QPushButton#btn_truncate:hover {
+    background-color: rgba(244, 63, 94, 0.12);
+    border-color: rgba(244, 63, 94, 0.35);
+}
+
+/* ─── COMPONENTES DE ENTRADA Y TEXTO ─────────────────────── */
+QLineEdit, QPlainTextEdit, QTextEdit {
+    background-color: #0d0d12;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    color: #e2e2e2;
+    padding: 8px 12px;
+}
+
+QLineEdit:focus, QPlainTextEdit:focus, QTextEdit:focus {
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background-color: #12121a;
+}
+
+QLineEdit:disabled {
+    background-color: #07070a;
+    color: #444455;
+}
+
+/* ─── PESTAÑAS (QTabWidget) ──────────────────────────────── */
+QTabWidget::pane {
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    background-color: #0d0d12;
+    border-radius: 10px;
+    top: -1px;
+}
+
+QTabBar::tab {
+    background: #101015;
+    color: #666677;
+    padding: 8px 16px;
+    margin-right: 4px;
+    border: 1px solid transparent;
+    border-bottom: 2px solid #333344;
+}
+
+QTabBar::tab:selected {
+    background: #0d0d12;
+    color: #ffffff;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+/* ─── TABLA DE DATOS (QTableView) ────────────────────────── */
+QTableView {
+    background-color: #0d0d12;
+    alternate-background-color: #12121a;
+    gridline-color: rgba(255, 255, 255, 0.02);
+    selection-background-color: rgba(255, 255, 255, 0.05);
+    selection-color: #ffffff;
+    border: none;
+    outline: none;
+}
+
+QTableView::item {
+    padding: 6px 10px;
+}
+
+QTableView::item:hover {
+    background-color: rgba(255, 255, 255, 0.03);
+}
+
+QHeaderView::section {
+    background-color: #0d0d12;
+    color: #888899;
+    padding: 10px;
+    border: none;
+    border-right: 1px solid rgba(255, 255, 255, 0.02);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* ─── SCROLLBARS MINIMALISTAS ──────────────────────────────── */
+QScrollBar:vertical {
+    background: transparent;
+    width: 6px;
+}
+
+QScrollBar::handle:vertical {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 3px;
+}
+
+QScrollBar::handle:vertical:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical { height: 0; }
+
+/* ─── INSPECTOR Y DETALLES ───────────────────────────────── */
+QScrollArea#inspector_scroll {
+    background-color: #0d0d12;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    border-radius: 10px;
+}
+
+QFormLayout QLabel {
+    color: #666677;
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+QComboBox {
+    background-color: #0d0d12;
+    border: 1px solid #333344;
+    color: #cfd8dc;
+    padding: 6px 10px;
+    border-radius: 6px;
+}
+
+QComboBox:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+QComboBox QAbstractItemView {
+    background-color: #101015;
+    color: #cfd8dc;
+}
+
+QLabel#section_title {
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+QLabel#inspector_name {
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px 0;
+}
+
+QLabel#img_placeholder {
+    background-color: #07070a;
+    border: 2px dashed rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    color: #555566;
+}
+
+/* Separadores */
+QFrame#separator {
+    background-color: rgba(255, 255, 255, 0.04);
+    max-height: 1px;
+    border: none;
+}
+
+/* Tarjeta de Línea de Tiempo */
+QFrame#timeline_card {
+    background-color: #0d0d12;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    border-radius: 8px;
+    padding: 16px;
+}
+
+/* Generador de Nombres - Resultado */
+QLabel#generator_result {
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
+    padding: 20px 10px;
+    background-color: #07070a;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+}
+
+/* Generador de Nombres - Botón de Copiar */
+QPushButton#generator_copy_btn {
+    background-color: rgba(16, 185, 129, 0.08);
+    border: 1px solid rgba(16, 185, 129, 0.25);
+    color: #34d399;
+}
+QPushButton#generator_copy_btn:hover {
+    background-color: rgba(16, 185, 129, 0.16);
+    border-color: rgba(16, 185, 129, 0.4);
+}
+
+/* Checkbox favorito */
+QCheckBox#chk_favorite {
+    color: #cfd8dc;
+    font-weight: bold;
+}
+QCheckBox#chk_favorite::indicator:checked {
+    image: none; /* simple check mark */
+}
+
+/* Campo requerido en formulario de diálogo */
+QLineEdit#edit_dialog_required_field {
+    border: 1px solid #3d3d5c; /* Muted Violet */
+    font-size: 13px;
+}
+QLineEdit#edit_dialog_required_field:focus {
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background-color: #12121a;
+}
+
+/* Separador en formulario de diálogo */
+QFrame#dialog_separator {
+    background-color: rgba(255, 255, 255, 0.08);
+    max-height: 1px;
+    border: none;
+}
+
+/* Total de Entidades en diálogo de estadísticas */
+QLabel#stats_total_label {
+    color: #ffffff; /* White */
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* Elementos de la línea de tiempo */
+QLabel#timeline_card_header {
+    color: #ffffff; /* White */
+    font-size: 14px;
+    font-weight: bold;
+}
+QLabel#timeline_card_desc {
+    color: #cfd8dc; /* Pale white */
+    font-size: 13px;
+}
+QLabel#timeline_card_type {
+    color: #666677; /* Muted ash */
+    font-style: italic;
+    font-size: 11px;
+}

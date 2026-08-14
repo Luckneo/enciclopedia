@@ -1,0 +1,393 @@
+/* ============================================================
+   TEMA D&D (DUNGEONS & DRAGONS) — EDICIÓN PREMIUM
+   Estilo de pergamino antiguo, cuero curtido, carmesí y oro
+   ============================================================ */
+
+* {
+    font-family: "Georgia", "Times New Roman", serif;
+    font-size: 13px;
+    color: #3f2314; /* Tinta marrón oscuro */
+}
+
+QMainWindow, QDialog {
+    background-color: #eedc9a; /* Pergamino antiguo */
+}
+
+QWidget {
+    background-color: transparent;
+}
+
+/* ─── SIDEBAR Y NAVEGACIÓN (INNER LEATHER SHELL) ──────────── */
+#sidebar_widget {
+    background-color: #4a2b1d; /* Cuero oscuro */
+    border-right: 2px solid #2b160a;
+}
+
+#sidebar_widget QLabel {
+    color: #ffd700; /* Letras doradas */
+}
+
+/* Árbol de navegación (Tree View) */
+QTreeWidget {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    padding: 8px;
+    color: #eedc9a;
+}
+
+QTreeWidget::item {
+    padding: 6px 10px;
+    border-radius: 6px;
+    min-height: 30px;
+    margin-bottom: 3px;
+}
+
+QTreeWidget::item:hover {
+    background-color: rgba(255, 215, 0, 0.1);
+    color: #ffffff;
+}
+
+QTreeWidget::item:selected {
+    background-color: #8b0000; /* Carmesí profundo */
+    color: #ffd700; /* Oro */
+    font-weight: bold;
+    border: 1px solid #ffd700;
+}
+
+QTreeWidget::branch {
+    background: transparent;
+}
+
+/* ─── BADGES Y PÍLDORAS ESTATUS ────────────────────────────── */
+#active_planet_badge {
+    background-color: #8b0000;
+    border: 1px solid #ffd700;
+    border-radius: 14px;
+    color: #ffd700;
+    font-weight: bold;
+    font-size: 11px;
+    padding: 6px 14px;
+    margin: 6px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* ─── BOTONES DE ACCIÓN (ESTILO PILL LEATHER) ─────────────── */
+QPushButton {
+    background-color: #4a2b1d; /* Cuero oscuro */
+    color: #eedc9a;
+    font-weight: bold;
+    border: 1px solid #2b160a;
+    padding: 6px 14px;
+    border-radius: 14px;
+}
+
+QPushButton:hover {
+    background-color: #8b0000; /* Carmesí */
+    color: #ffd700;
+    border-color: #ffd700;
+}
+
+QPushButton:pressed {
+    background-color: #2b160a;
+    border-color: #2b160a;
+}
+
+QPushButton:disabled {
+    background-color: #dab97b;
+    border-color: #dab97b;
+    color: rgba(63, 35, 20, 0.5);
+}
+
+/* Botón Destacado / Guardar / Buscar */
+QPushButton#btn_add_row, QPushButton#btn_save, QPushButton#btn_global_search, QPushButton#btn_save_inspector {
+    background-color: #8b0000; /* Carmesí */
+    border: 1px solid #5a0000;
+    color: #ffd700;
+}
+
+QPushButton#btn_add_row:hover, QPushButton#btn_save:hover, QPushButton#btn_global_search:hover, QPushButton#btn_save_inspector:hover {
+    background-color: #a30000;
+    border-color: #ffd700;
+}
+
+/* Botón Nuevo Planeta (Verde Bosque) */
+QPushButton#btn_new_planet {
+    background-color: #1e3f20;
+    border: 1px solid #0f2310;
+    color: #eedc9a;
+}
+
+QPushButton#btn_new_planet:hover {
+    background-color: #2e5f30;
+    border-color: #ffd700;
+    color: #ffffff;
+}
+
+/* Botón Clonar Planeta (Cielo Medieval) */
+QPushButton#btn_clone_planet {
+    background-color: #1a365d;
+    border: 1px solid #0f1c3f;
+    color: #eedc9a;
+}
+
+QPushButton#btn_clone_planet:hover {
+    background-color: #2b5c8f;
+    border-color: #ffd700;
+    color: #ffffff;
+}
+
+/* Botón Eliminar / Purgar (Marrón Quemado) */
+QPushButton#btn_del_row, QPushButton#btn_truncate {
+    background-color: rgba(139, 0, 0, 0.08);
+    border: 1px solid rgba(139, 0, 0, 0.3);
+    color: #8b0000;
+}
+
+QPushButton#btn_del_row:hover, QPushButton#btn_truncate:hover {
+    background-color: #8b0000;
+    border-color: #ffd700;
+    color: #ffffff;
+}
+
+/* ─── COMPONENTES DE ENTRADA Y TEXTO ─────────────────────── */
+QLineEdit, QPlainTextEdit, QTextEdit {
+    background-color: #fdf5e6; /* Lace antiguo */
+    border: 1px solid #8b4513;
+    border-radius: 8px;
+    color: #3f2314;
+    padding: 8px 12px;
+}
+
+QLineEdit:focus, QPlainTextEdit:focus, QTextEdit:focus {
+    border: 2px solid #8b0000;
+    background-color: #ffffff;
+}
+
+QLineEdit:disabled {
+    background-color: #e6cf9b;
+    color: rgba(63, 35, 20, 0.4);
+}
+
+/* ─── PESTAÑAS (QTabWidget) ──────────────────────────────── */
+QTabWidget::pane {
+    border: 2px solid #8b4513;
+    background-color: #fdf5e6;
+    border-radius: 8px;
+    top: -1px;
+}
+
+QTabBar::tab {
+    background: #dab97b;
+    color: #3f2314;
+    padding: 8px 16px;
+    margin-right: 4px;
+    border: 2px solid #8b4513;
+    border-bottom: none;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    font-weight: bold;
+}
+
+QTabBar::tab:selected {
+    background: #fdf5e6;
+    color: #8b0000;
+    border-bottom: 2px solid #fdf5e6;
+}
+
+QTabBar::tab:hover:!selected {
+    background: #e8cc8e;
+}
+
+/* ─── TABLA DE DATOS (QTableView) ────────────────────────── */
+QTableView {
+    background-color: #fdf5e6;
+    alternate-background-color: #faf0e6;
+    gridline-color: #d2b48c;
+    selection-background-color: rgba(139, 0, 0, 0.15);
+    selection-color: #8b0000;
+    border: none;
+    outline: none;
+}
+
+QTableView::item {
+    padding: 6px 10px;
+}
+
+QTableView::item:hover {
+    background-color: #e8cc8e;
+}
+
+QHeaderView::section {
+    background-color: #8b4513;
+    color: #eedc9a;
+    padding: 10px;
+    font-weight: bold;
+    border: none;
+    border-right: 1px solid #5c2e0b;
+    border-bottom: 1px solid #5c2e0b;
+}
+
+QHeaderView {
+    background-color: #8b4513;
+}
+
+/* ─── SCROLLBARS PARCHMENT STYLE ───────────────────────────── */
+QScrollBar:vertical {
+    background: #dab97b;
+    width: 8px;
+}
+
+QScrollBar::handle:vertical {
+    background: #8b4513;
+    border-radius: 4px;
+}
+
+QScrollBar::handle:vertical:hover {
+    background: #8b0000;
+}
+
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical { height: 0; }
+
+/* ─── INSPECTOR Y DETALLES (DOUBLE-BEZEL LEATHER) ────────── */
+QScrollArea#inspector_scroll {
+    background-color: #fdf5e6;
+    border: 2px solid #8b4513;
+    border-radius: 8px;
+}
+
+QFormLayout QLabel {
+    color: #8b4513;
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+QComboBox {
+    background-color: #fdf5e6;
+    border: 2px solid #8b4513;
+    color: #3f2314;
+    padding: 6px;
+    border-radius: 6px;
+}
+
+QComboBox:hover {
+    border-color: #8b0000;
+}
+
+QComboBox QAbstractItemView {
+    background-color: #fdf5e6;
+    color: #3f2314;
+    selection-background-color: #8b4513;
+    selection-color: #eedc9a;
+}
+
+QLabel#section_title {
+    color: #8b0000;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 6px 0;
+    border-bottom: 1px solid #8b4513;
+}
+
+QLabel#inspector_name {
+    color: #3f2314;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px 0;
+}
+
+QLabel#img_placeholder {
+    background-color: #fdf5e6;
+    border: 2px dashed #8b4513;
+    border-radius: 8px;
+    color: #8b4513;
+}
+
+/* Separadores */
+QFrame#separator {
+    background-color: #d2b48c;
+    max-height: 1px;
+    border: none;
+}
+
+/* Tarjeta de Línea de Tiempo */
+QFrame#timeline_card {
+    background-color: #fdf5e6;
+    border: 1px solid #8b4513;
+    border-radius: 8px;
+    padding: 16px;
+}
+
+/* Generador de Nombres - Resultado */
+QLabel#generator_result {
+    font-size: 16px;
+    font-weight: bold;
+    color: #8b0000;
+    padding: 20px 10px;
+    background-color: #f5ecc5;
+    border: 1px solid #8b4513;
+    border-radius: 8px;
+}
+
+/* Generador de Nombres - Botón de Copiar */
+QPushButton#generator_copy_btn {
+    background-color: #1e3f20;
+    border: 1px solid #0f2310;
+    color: #eedc9a;
+    font-weight: bold;
+    margin-top: 10px;
+}
+QPushButton#generator_copy_btn:hover {
+    background-color: #2e5f30;
+    border-color: #ffd700;
+}
+
+/* Checkbox favorito */
+QCheckBox#chk_favorite {
+    color: #b8860b; /* Dark goldenrod */
+    font-weight: bold;
+}
+
+/* Campo requerido en formulario de diálogo */
+QLineEdit#edit_dialog_required_field {
+    border: 2px solid #8b0000; /* Crimson */
+    font-size: 13px;
+}
+QLineEdit#edit_dialog_required_field:focus {
+    border: 2px solid #8b0000;
+    background-color: #ffffff;
+}
+
+/* Separador en formulario de diálogo */
+QFrame#dialog_separator {
+    background-color: #8b4513;
+    max-height: 1px;
+    border: none;
+}
+
+/* Total de Entidades en diálogo de estadísticas */
+QLabel#stats_total_label {
+    color: #8b0000; /* Crimson */
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* Elementos de la línea de tiempo */
+QLabel#timeline_card_header {
+    color: #8b0000; /* Crimson */
+    font-size: 14px;
+    font-weight: bold;
+}
+QLabel#timeline_card_desc {
+    color: #3f2314; /* Dark brown ink */
+    font-size: 13px;
+}
+QLabel#timeline_card_type {
+    color: #8b4513; /* Leather brown */
+    font-style: italic;
+    font-size: 11px;
+}

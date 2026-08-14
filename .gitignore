@@ -1,0 +1,38 @@
+# Datos locales y copias grandes: nunca deben subirse al repositorio.
+*.db
+*.db-shm
+*.db-wal
+*.bak
+datos/
+datos_csv/
+graphify-out/
+enciclopedia 2/
+scratch/
+__pycache__/
+*.pyc
+crash.log
+.agents/
+.codex/
+skills/
+skills-lock.json
+.skill-lock.json
+docs/codebase/.codebase-scan.txt
+
+# Dependencias, builds y configuración privada.
+node_modules/
+.output/
+dist/
+.env
+.env.*
+!.env.example
+*.local
+
+# Exportaciones de interfaz descartadas; la aplicación canónica sí se conserva.
+interfaz/*/
+!interfaz/enciclopedia-completa/
+
+# Archivos del sistema/editor.
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
