@@ -1,11 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   ArrowLeft,
-  BookOpen,
   ChevronLeft,
   ChevronRight,
   Database,
-  Pencil,
   Search,
   Server,
   X,
@@ -19,6 +17,7 @@ import {
   type WorldOverview,
 } from "@/lib/world-api";
 import { DraftEditor, type DraftTarget } from "@/components/editorial/DraftEditor";
+import { ArchiveRecordGrid } from "@/components/archive/ArchiveRecordGrid";
 
 export const Route = createFileRoute("/archivo-real")({
   head: () => ({
@@ -32,11 +31,6 @@ export const Route = createFileRoute("/archivo-real")({
   }),
   component: RealArchive,
 });
-
-function valueLabel(value: unknown) {
-  if (value === null || value === undefined || value === "") return "—";
-  return String(value);
-}
 
 function RealArchive() {
   const [overview, setOverview] = useState<WorldOverview | null>(null);
@@ -245,59 +239,7 @@ function RealArchive() {
             </div>
           )}
 
-          <div
-            className="border border-white/10 rounded-xl overflow-hidden bg-black/30"
-            aria-busy={loading}
-          >
-            <div className="overflow-x-auto">
-              <table className="w-full text-left text-xs">
-                <thead className="bg-white/[0.05] text-[9px] font-mono uppercase tracking-wider text-white/45">
-                  <tr>
-                    <th className="px-4 py-3"><span className="sr-only">Acciones</span></th>
-                    {result?.columns.map((column) => (
-                      <th key={column} className="px-4 py-3 whitespace-nowrap">
-                        {column}
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-white/5">
-                  {result?.records.map((record, rowIndex) => (
-                    <tr key={String(record.source_id ?? `${page}-${rowIndex}`)} className="hover:bg-cyan-400/[0.035] align-top">
-                      <td className="w-14 px-3 py-2.5">
-                        <button
-                          type="button"
-                          onClick={() => result && setDraftTarget({ categoryId: result.categoryId, categoryName: result.categoryName, titleColumn: result.titleColumn, columns: result.columns, record })}
-                          className="grid h-9 w-9 place-items-center rounded border border-cyan-300/15 text-cyan-200/55 hover:border-cyan-300/45 hover:bg-cyan-300/10 hover:text-cyan-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300"
-                          aria-label={`Editar ${valueLabel(record[result?.titleColumn ?? "source_id"])}`}
-                        >
-                          <Pencil size={14} />
-                        </button>
-                      </td>
-                      {result.columns.map((column) => (
-                        <td key={column} className="px-4 py-3 min-w-36 max-w-md">
-                          <span className="line-clamp-3 text-white/70">
-                            {valueLabel(record[column])}
-                          </span>
-                        </td>
-                      ))}
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-            {!loading && result?.records.length === 0 && (
-              <div className="py-16 text-center text-white/35">
-                <BookOpen className="mx-auto mb-3" />
-                No hay registros para esta consulta.
-              </div>
-            )}
-            {loading && (
-              <div className="py-16 text-center font-mono text-xs tracking-[0.25em] text-cyan-300 animate-pulse">
-                CONSULTANDO ARCHIVO LOCAL...
-              </div>
-            )}
-          </div>
+          <ArchiveRecordGrid result={result} loading={loading} page={page} onEdit={(record) => result && setDraftTarget({ categoryId: result.categoryId, categoryName: result.categoryName, titleColumn: result.titleColumn, columns: result.columns, record })} />
 
           <div className="flex flex-col sm:flex-row gap-3 justify-between items-stretch sm:items-center mt-4 text-xs font-mono text-white/55">
             <span>PÁGINA {page}</span>

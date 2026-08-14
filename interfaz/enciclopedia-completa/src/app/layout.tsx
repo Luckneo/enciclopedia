@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="es">
-      <body>
+      <body className="pb-20 xl:pb-0">
         <a href="#main-content" className="skip-link">Saltar al contenido principal</a>
         {children}
         <EncyclopediaNavigator />

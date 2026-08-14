@@ -57,10 +57,37 @@ export function EncyclopediaNavigator() {
 
   return (
     <>
+      <aside
+        aria-label="Panel principal de la enciclopedia"
+        className="group fixed left-3 top-1/2 z-50 hidden -translate-y-1/2 flex-col overflow-hidden rounded-2xl border border-gold/20 bg-[#05070a]/94 shadow-[0_24px_80px_rgba(0,0,0,.72)] backdrop-blur-xl xl:flex"
+      >
+        <div className="flex h-12 items-center gap-3 border-b border-white/10 px-3">
+          <span className="grid h-7 w-7 shrink-0 place-items-center rounded-lg border border-gold/30 bg-gold/10 text-gold"><Globe2 size={14} /></span>
+          <span className="w-0 overflow-hidden whitespace-nowrap font-mono text-[9px] tracking-[.26em] text-gold opacity-0 transition-all duration-300 group-hover:w-36 group-hover:opacity-100">NEXUS CENTRAL</span>
+        </div>
+        <nav className="flex flex-col gap-1 p-2">
+          {destinations.slice(0, 7).map((item) => {
+            const Icon = item.icon;
+            const active = pathname === item.href;
+            return <Link key={item.href} href={item.href} aria-current={active ? "page" : undefined} title={item.label} className={`relative flex min-h-11 items-center gap-3 rounded-xl px-2.5 transition-colors ${active ? "bg-gold/12 text-gold" : "text-white/45 hover:bg-white/[.05] hover:text-cyan-200"}`}><Icon size={16} className="shrink-0" /><span className="w-0 overflow-hidden whitespace-nowrap text-[10px] font-semibold tracking-wide opacity-0 transition-all duration-300 group-hover:w-36 group-hover:opacity-100">{item.label}</span>{active && <span className="absolute -left-2 h-5 w-0.5 rounded-r bg-gold shadow-[0_0_10px_currentColor]" />}</Link>;
+          })}
+        </nav>
+        <button type="button" onClick={() => setOpen(true)} className="m-2 mt-0 flex min-h-11 items-center gap-3 rounded-xl border border-cyan-300/15 px-2.5 text-cyan-200/65 hover:border-cyan-300/35 hover:bg-cyan-300/[.06]" aria-label="Buscar en la enciclopedia"><Search size={16} /><span className="w-0 overflow-hidden whitespace-nowrap font-mono text-[9px] tracking-wider opacity-0 transition-all duration-300 group-hover:w-36 group-hover:opacity-100">BUSCAR · ⌘K</span></button>
+      </aside>
+
+      <nav aria-label="Navegación móvil" className="fixed inset-x-3 bottom-3 z-50 grid grid-cols-5 rounded-2xl border border-gold/20 bg-[#05070a]/94 p-1.5 shadow-[0_18px_60px_rgba(0,0,0,.7)] backdrop-blur-xl xl:hidden">
+        {[destinations[0], destinations[1], null, destinations[6], destinations[2]].map((item, index) => {
+          if (!item) return <button key="search" type="button" onClick={() => setOpen(true)} className="mx-auto grid h-12 w-12 place-items-center rounded-xl border border-gold/25 bg-gold/10 text-gold" aria-label="Buscar y navegar"><Search size={18} /></button>;
+          const Icon = item.icon;
+          const active = pathname === item.href;
+          return <Link key={item.href} href={item.href} aria-current={active ? "page" : undefined} className={`flex min-h-12 flex-col items-center justify-center gap-1 rounded-xl text-[7px] font-mono tracking-wider ${active ? "bg-white/[.06] text-gold" : "text-white/45"}`}><Icon size={16} /><span>{index === 0 ? "INICIO" : index === 1 ? "ARCHIVO" : index === 3 ? "MAPA" : "BESTIARIO"}</span></Link>;
+        })}
+      </nav>
+
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="fixed bottom-4 right-4 z-40 flex min-h-11 items-center gap-2 rounded-full border border-gold/35 bg-[#07090c]/92 px-4 text-[10px] font-mono tracking-[0.18em] text-gold shadow-[0_12px_40px_rgba(0,0,0,.55)] backdrop-blur-xl transition-colors hover:border-gold/70 hover:bg-gold/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+        className="fixed bottom-20 right-4 z-40 hidden min-h-11 items-center gap-2 rounded-full border border-gold/35 bg-[#07090c]/92 px-4 text-[10px] font-mono tracking-[0.18em] text-gold shadow-[0_12px_40px_rgba(0,0,0,.55)] backdrop-blur-xl transition-colors hover:border-gold/70 hover:bg-gold/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
         aria-label="Abrir navegación universal"
         aria-keyshortcuts="Control+K Meta+K"
       >
