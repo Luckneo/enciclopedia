@@ -4,7 +4,7 @@ if not exist "%~dp0interfaz\enciclopedia-completa\.env.local" (
   start "Enciclopedia API" /min python local_api.py
 )
 cd /d "%~dp0interfaz\enciclopedia-completa"
-if not exist ".output\server\index.mjs" (
+if not exist ".next\BUILD_ID" (
   echo Preparando la interfaz por primera vez...
   call npm run build
   if errorlevel 1 (
@@ -13,6 +13,4 @@ if not exist ".output\server\index.mjs" (
     exit /b 1
   )
 )
-set HOST=127.0.0.1
-set PORT=5173
-npm run start
+call npm run start -- -H 127.0.0.1 -p 5173

@@ -36,8 +36,8 @@ export type CategoryPage = {
 };
 
 const LOCAL_API = "http://127.0.0.1:8765";
-const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL?.replace(/\/$/, "");
-const SUPABASE_KEY = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY;
+const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL?.replace(/\/$/, "");
+const SUPABASE_KEY = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
 const USE_SUPABASE = Boolean(SUPABASE_URL && SUPABASE_KEY);
 
 const REMOTE_CATEGORIES = [
@@ -52,10 +52,6 @@ const MAX_CACHED_PAGES = 24;
 export async function fetchWorldOverview(signal?: AbortSignal): Promise<WorldOverview> {
   if (!overviewRequest) {
     overviewRequest = (USE_SUPABASE ? fetchSupabaseOverview() : fetchLocalOverview())
-      .then((response) => {
-        if (!response.ok) throw new Error(`El módulo Mundo respondió ${response.status}`);
-        return response.json() as Promise<WorldOverview>;
-      })
       .catch((error: unknown) => {
         overviewRequest = null;
         throw error;
