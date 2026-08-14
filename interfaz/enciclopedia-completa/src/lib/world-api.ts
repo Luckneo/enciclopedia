@@ -1,3 +1,5 @@
+import { supabaseConfig } from "@/lib/supabase/config";
+
 export type WorldCategorySummary = {
   id: number;
   name: string;
@@ -36,9 +38,10 @@ export type CategoryPage = {
 };
 
 const LOCAL_API = "http://127.0.0.1:8765";
-const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL?.replace(/\/$/, "");
-const SUPABASE_KEY = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
-const USE_SUPABASE = Boolean(SUPABASE_URL && SUPABASE_KEY);
+
+const SUPABASE_URL = supabaseConfig.url;
+const SUPABASE_KEY = supabaseConfig.publishableKey;
+const USE_SUPABASE = true;
 const IS_PRODUCTION_BROWSER =
   typeof window !== "undefined" && !["localhost", "127.0.0.1"].includes(window.location.hostname);
 

@@ -1,19 +1,10 @@
 import { NextResponse } from "next/server";
+import { supabaseConfig } from "@/lib/supabase/config";
 
 export const dynamic = "force-dynamic";
 
 export async function GET() {
-  const url = (process.env.NEXT_PUBLIC_SUPABASE_URL ?? process.env.VITE_SUPABASE_URL)?.replace(/\/$/, "");
-  const key =
-    process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY ??
-    process.env.VITE_SUPABASE_PUBLISHABLE_KEY;
-
-  if (!url || !key) {
-    return NextResponse.json(
-      { ok: false, database: "supabase", error: "missing_environment" },
-      { status: 503 },
-    );
-  }
+  const { url, publishableKey: key } = supabaseConfig;
 
   try {
     const response = await fetch(`${url}/rest/v1/creatures?select=source_id&limit=1`, {

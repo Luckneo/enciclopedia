@@ -1,8 +1,6 @@
 import { createBrowserClient } from "@supabase/ssr";
+import { supabaseConfig } from "./config";
 
 export function createSupabaseBrowserClient() {
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const key = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
-  if (!url || !key) throw new Error("Supabase no está configurado en este entorno.");
-  return createBrowserClient(url, key);
+  return createBrowserClient(supabaseConfig.url, supabaseConfig.publishableKey);
 }
