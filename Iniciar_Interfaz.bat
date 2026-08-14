@@ -1,6 +1,8 @@
 @echo off
 title Enciclopedia Planetaria - Interfaz Web Local
-start "Enciclopedia API" /min python local_api.py
+if not exist "%~dp0interfaz\enciclopedia-completa\.env.local" (
+  start "Enciclopedia API" /min python local_api.py
+)
 cd /d "%~dp0interfaz\enciclopedia-completa"
 if not exist ".output\server\index.mjs" (
   echo Preparando la interfaz por primera vez...

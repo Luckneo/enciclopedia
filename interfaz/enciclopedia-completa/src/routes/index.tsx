@@ -120,8 +120,13 @@ function NexusIndex() {
     {
       path: "/archivo-real",
       title: "ARCHIVO REAL",
-      subtitle: "4.4 Millones de Registros Locales",
-      desc: "Explorador conectado directamente a encyclopedia.db con búsqueda paginada, categorías dinámicas y acceso seguro de solo lectura.",
+      subtitle: world
+        ? `${world.recordCount.toLocaleString("es-PE")} Registros Disponibles`
+        : "Archivo de Datos Planetarios",
+      desc:
+        world?.mode === "supabase-readonly"
+          ? "Explorador conectado a Supabase con criaturas, flora y minerales, búsqueda paginada y acceso público de solo lectura."
+          : "Explorador conectado directamente a encyclopedia.db con búsqueda paginada, categorías dinámicas y acceso seguro de solo lectura.",
       icon: Database,
       color: "from-cyan-500/20 to-sky-500/5",
       border: "border-cyan-500/35 hover:border-cyan-500/80",

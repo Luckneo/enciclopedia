@@ -117,7 +117,9 @@ function RealArchive() {
               ARCHIVO REAL
             </h1>
             <p className="hidden sm:block text-[9px] font-mono tracking-[0.25em] text-white/45 truncate">
-              SQLITE · SOLO LECTURA · ACCESO LOCAL
+              {overview?.mode === "supabase-readonly"
+                ? "SUPABASE · SOLO LECTURA · ACCESO REMOTO"
+                : "SQLITE · SOLO LECTURA · ACCESO LOCAL"}
             </p>
           </div>
           <div
