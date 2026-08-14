@@ -3,12 +3,13 @@
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { BookOpen, Database, FlaskConical, Globe2, Leaf, Map, Search, Skull, Sparkles, Users, X } from "lucide-react";
+import { BookOpen, Database, FlaskConical, Globe2, Leaf, Map, PencilLine, Search, Skull, Sparkles, Users, X } from "lucide-react";
 import { useEffect, useMemo, useRef, useState } from "react";
 
 const destinations = [
   { href: "/", label: "NEXUS Central", detail: "Inicio y estado del archivo", icon: Globe2 },
   { href: "/archivo-real", label: "Archivo editable", detail: "409 000 registros reales", icon: Database },
+  { href: "/archivo-vivo", label: "Archivo vivo", detail: "Fichas visuales publicadas", icon: BookOpen },
   { href: "/bestiary", label: "Codex Bestiarum", detail: "Fauna y evolución", icon: Skull },
   { href: "/flora", label: "Flora fantástica", detail: "Botánica, especies y niveles", icon: Leaf },
   { href: "/catalogo", label: "Catálogo de especies", detail: "Exploración botánica", icon: BookOpen },
@@ -16,6 +17,7 @@ const destinations = [
   { href: "/locations", label: "Cartografía", detail: "Planeta, regiones y ciudades", icon: Map },
   { href: "/alquimia", label: "Alquimia", detail: "Recetas y propiedades", icon: FlaskConical },
   { href: "/legendarias", label: "Especies legendarias", detail: "Registros excepcionales", icon: Sparkles },
+  { href: "/editor", label: "Taller editorial", detail: "Crear fichas y subir imágenes", icon: PencilLine },
 ] as const;
 
 export function EncyclopediaNavigator() {
@@ -66,7 +68,7 @@ export function EncyclopediaNavigator() {
           <span className="w-0 overflow-hidden whitespace-nowrap font-mono text-[9px] tracking-[.26em] text-gold opacity-0 transition-all duration-300 group-hover:w-36 group-hover:opacity-100">NEXUS CENTRAL</span>
         </div>
         <nav className="flex flex-col gap-1 p-2">
-          {destinations.slice(0, 7).map((item) => {
+          {destinations.slice(0, 8).map((item) => {
             const Icon = item.icon;
             const active = pathname === item.href;
             return <Link key={item.href} href={item.href} aria-current={active ? "page" : undefined} title={item.label} className={`relative flex min-h-11 items-center gap-3 rounded-xl px-2.5 transition-colors ${active ? "bg-gold/12 text-gold" : "text-white/45 hover:bg-white/[.05] hover:text-cyan-200"}`}><Icon size={16} className="shrink-0" /><span className="w-0 overflow-hidden whitespace-nowrap text-[10px] font-semibold tracking-wide opacity-0 transition-all duration-300 group-hover:w-36 group-hover:opacity-100">{item.label}</span>{active && <span className="absolute -left-2 h-5 w-0.5 rounded-r bg-gold shadow-[0_0_10px_currentColor]" />}</Link>;
@@ -76,7 +78,7 @@ export function EncyclopediaNavigator() {
       </aside>
 
       <nav aria-label="Navegación móvil" className="fixed inset-x-3 bottom-3 z-50 grid grid-cols-5 rounded-2xl border border-gold/20 bg-[#05070a]/94 p-1.5 shadow-[0_18px_60px_rgba(0,0,0,.7)] backdrop-blur-xl xl:hidden">
-        {[destinations[0], destinations[1], null, destinations[6], destinations[2]].map((item, index) => {
+        {[destinations.find((item) => item.href === "/"), destinations.find((item) => item.href === "/archivo-real"), null, destinations.find((item) => item.href === "/locations"), destinations.find((item) => item.href === "/bestiary")].map((item, index) => {
           if (!item) return <button key="search" type="button" onClick={() => setOpen(true)} className="mx-auto grid h-12 w-12 place-items-center rounded-xl border border-gold/25 bg-gold/10 text-gold" aria-label="Buscar y navegar"><Search size={18} /></button>;
           const Icon = item.icon;
           const active = pathname === item.href;
