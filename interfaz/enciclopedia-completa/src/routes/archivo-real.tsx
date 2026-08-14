@@ -5,6 +5,7 @@ import {
   ChevronLeft,
   ChevronRight,
   Database,
+  Pencil,
   Search,
   Server,
   X,
@@ -17,6 +18,7 @@ import {
   type CategoryPage,
   type WorldOverview,
 } from "@/lib/world-api";
+import { DraftEditor, type DraftTarget } from "@/components/editorial/DraftEditor";
 
 export const Route = createFileRoute("/archivo-real")({
   head: () => ({
@@ -46,6 +48,7 @@ function RealArchive() {
   const [result, setResult] = useState<CategoryPage | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
+  const [draftTarget, setDraftTarget] = useState<DraftTarget | null>(null);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -118,7 +121,7 @@ function RealArchive() {
             </h1>
             <p className="hidden sm:block text-[9px] font-mono tracking-[0.25em] text-white/45 truncate">
               {overview?.mode === "supabase-readonly"
-                ? "SUPABASE · SOLO LECTURA · ACCESO REMOTO"
+                ? "SUPABASE · LECTURA REMOTA · WORKSPACE EDITORIAL LOCAL"
                 : "SQLITE · SOLO LECTURA · ACCESO LOCAL"}
             </p>
           </div>
@@ -250,6 +253,7 @@ function RealArchive() {
               <table className="w-full text-left text-xs">
                 <thead className="bg-white/[0.05] text-[9px] font-mono uppercase tracking-wider text-white/45">
                   <tr>
+                    <th className="px-4 py-3"><span className="sr-only">Acciones</span></th>
                     {result?.columns.map((column) => (
                       <th key={column} className="px-4 py-3 whitespace-nowrap">
                         {column}
@@ -259,7 +263,17 @@ function RealArchive() {
                 </thead>
                 <tbody className="divide-y divide-white/5">
                   {result?.records.map((record, rowIndex) => (
-                    <tr key={`${page}-${rowIndex}`} className="hover:bg-cyan-400/[0.035] align-top">
+                    <tr key={String(record.source_id ?? `${page}-${rowIndex}`)} className="hover:bg-cyan-400/[0.035] align-top">
+                      <td className="w-14 px-3 py-2.5">
+                        <button
+                          type="button"
+                          onClick={() => result && setDraftTarget({ categoryId: result.categoryId, categoryName: result.categoryName, titleColumn: result.titleColumn, columns: result.columns, record })}
+                          className="grid h-9 w-9 place-items-center rounded border border-cyan-300/15 text-cyan-200/55 hover:border-cyan-300/45 hover:bg-cyan-300/10 hover:text-cyan-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300"
+                          aria-label={`Editar ${valueLabel(record[result?.titleColumn ?? "source_id"])}`}
+                        >
+                          <Pencil size={14} />
+                        </button>
+                      </td>
                       {result.columns.map((column) => (
                         <td key={column} className="px-4 py-3 min-w-36 max-w-md">
                           <span className="line-clamp-3 text-white/70">
@@ -306,6 +320,15 @@ function RealArchive() {
           </div>
         </section>
       </main>
+      <DraftEditor
+        target={draftTarget}
+        onClose={() => setDraftTarget(null)}
+        onSave={(nextRecord) => {
+          if (!draftTarget) return;
+          setResult((current) => current ? { ...current, records: current.records.map((record) => record.source_id === draftTarget.record.source_id ? nextRecord : record) } : current);
+          setDraftTarget((current) => current ? { ...current, record: nextRecord } : current);
+        }}
+      />
     </div>
   );
 }

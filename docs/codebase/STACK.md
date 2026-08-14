@@ -3,58 +3,48 @@
 ## 1) Runtime Summary
 
 | Area | Value | Evidence |
-|------|-------|----------|
-| Primary language | Python | `main.py`, `ui.py`, `database.py` |
-| Runtime + version | Python 3; exact supported version `[TODO]` | `Iniciar_Enciclopedia.bat`, `main.py` |
-| Package manager | `[TODO]` (no Python dependency manifest found) | `docs/codebase/.codebase-scan.txt` |
-| Module/build system | Direct Python modules; no packaging/build configuration found | `main.py`, root file layout |
+|---|---|---|
+| Primary language | TypeScript 5.8 (web), Python 3 (desktop/local) | `interfaz/enciclopedia-completa/package.json`, `requirements.txt` |
+| Runtime + version | Next.js 16 / React 19; Python version `[TODO]` | `package.json`, `requirements.txt` |
+| Package manager | npm, pip | `package-lock.json`, `requirements.txt` |
+| Module/build system | ESM, Next Turbopack, PostCSS/Tailwind 4 | `package.json`, `next.config.ts`, `postcss.config.mjs` |
 
 ## 2) Production Frameworks and Dependencies
 
-| Dependency | Version | Role in system | Evidence |
-|------------|---------|----------------|----------|
-| PyQt6 | `[TODO]` | Desktop UI, SQL models, threads, printing | `main.py`, `ui.py` |
-| pandas | `[TODO]` | Spreadsheet/CSV ingestion and database import | `database.py`, `importar_*.py` |
-| SQLite | Python stdlib binding; inspected runtime 3.50.4 | Persistent store and FTS5 search | `database.py`, terminal DB inspection |
-
-Python standard-library modules include `sqlite3`, `threading`, `zipfile`, `shutil`, `random`, `math`, `traceback`, and `os`.
+| Dependency | Version | Role | Evidence |
+|---|---:|---|---|
+| next | ^16.1.6 | App Router, build and Vercel runtime | `package.json` |
+| react | ^19.2.0 | UI runtime | `package.json` |
+| motion | ^13.1.0 | accessible transitions | `package.json`, `src/app/route-screen.tsx` |
+| zod | ^3.24.2 | schema validation dependency; use is `[TODO]` | `package.json` |
+| PyQt6 / FastAPI | unpinned | desktop UI / local read API | `requirements.txt`, `main.py`, `local_api.py` |
 
 ## 3) Development Toolchain
 
 | Tool | Purpose | Evidence |
-|------|---------|----------|
-| Ad-hoc Python smoke script | Exercise UI tree selections and dialog launchers | `scratch/test_ui.py` |
-| Linters/formatters/build tools | `[TODO]` none configured in the root application | scan output |
+|---|---|---|
+| TypeScript | strict type check | `tsconfig.json` |
+| ESLint | web lint | `eslint.config.js` |
+| Prettier | formatting | `package.json` |
+| pytest/unittest | Python tests | `tests/` |
 
 ## 4) Key Commands
 
-```powershell
-# Install command is not recorded; inferred minimum packages only:
-python -m pip install PyQt6 pandas
-
-# Run
-python main.py
-# or on Windows
-.\Iniciar_Enciclopedia.bat
-
-# Existing smoke check (opens a GUI and uses the production DB)
-python scratch/test_ui.py
+```bash
+cd interfaz/enciclopedia-completa && npm install
+npm run build
+npm run lint
+python -m unittest discover tests
 ```
-
-There is no verified build, lint, unit-test, or coverage command.
 
 ## 5) Environment and Config
 
-- Config sources: `styles.qss`, `themes/*.qss`, data persisted in `encyclopedia.db`.
-- Required environment variables: none found.
-- Runtime constraints: desktop GUI; local filesystem access; SQLite must include FTS5 for indexed global search. Paths are commonly resolved relative to the process or application directory.
-- Reproducibility gap: no `requirements.txt`, `pyproject.toml`, lockfile, or declared Python version was found for the root application.
+- Config: `next.config.ts`, `.env.example`, `requirements.txt`.
+- Required web vars: `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`.
+- Vercel root: `interfaz/enciclopedia-completa` (`DEPLOYMENT.md`).
 
 ## 6) Evidence
 
-- `main.py`
-- `Iniciar_Enciclopedia.bat`
-- `database.py`
-- `ui.py`
-- `scratch/test_ui.py`
-- `docs/codebase/.codebase-scan.txt`
+- `interfaz/enciclopedia-completa/package.json`
+- `interfaz/enciclopedia-completa/next.config.ts`
+- `requirements.txt`

@@ -32,9 +32,16 @@ export function Dossier({
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
       if (tab === "section") {
-        if (e.key === "ArrowRight") setIdx((i) => (i + 1) % dossierSections.length);
-        if (e.key === "ArrowLeft")
-          setIdx((i) => (i - 1 + dossierSections.length) % dossierSections.length);
+        if (e.key === "ArrowRight") setIdx((i) => {
+          const next = (i + 1) % dossierSections.length;
+          setActiveSectionId(dossierSections[next].id);
+          return next;
+        });
+        if (e.key === "ArrowLeft") setIdx((i) => {
+          const next = (i - 1 + dossierSections.length) % dossierSections.length;
+          setActiveSectionId(dossierSections[next].id);
+          return next;
+        });
       }
     };
     window.addEventListener("keydown", onKey);
@@ -66,6 +73,9 @@ export function Dossier({
       onClick={onClose}
     >
       <div
+        role="dialog"
+        aria-modal="true"
+        aria-label="Dossier enciclopédico"
         className="relative w-full max-w-[1480px] h-full overflow-hidden flex
                    bg-gradient-to-br from-[oklch(0.1_0.018_250)] to-[oklch(0.07_0.012_250)]
                    border-l border-gold/30 shadow-[0_0_120px_rgba(0,0,0,0.9)]"
@@ -85,11 +95,13 @@ export function Dossier({
           </div>
 
           {/* Top-level tabs */}
-          <div className="px-3 py-3 grid grid-cols-2 gap-1 border-b border-gold/10">
+          <div role="tablist" aria-label="Vistas del dossier" className="px-3 py-3 grid grid-cols-2 gap-1 border-b border-gold/10">
             {tabs.map((t) => (
               <button
                 key={t.id}
                 onClick={() => setTab(t.id)}
+                role="tab"
+                aria-selected={tab === t.id}
                 className={`nav-tab flex items-center gap-1.5 px-2 py-2 text-[10px] tech tracking-wider border transition-colors ${
                   tab === t.id
                     ? "nav-tab-on border-gold/70 bg-gold/10 text-gold"
@@ -119,7 +131,10 @@ export function Dossier({
                   return (
                     <button
                       key={s.id}
-                      onClick={() => setActiveSectionId(s.id)}
+                      onClick={() => {
+                        setActiveSectionId(s.id);
+                        setIdx(dossierSections.findIndex((item) => item.id === s.id));
+                      }}
                       className={`w-full text-left px-4 py-2.5 border-l-2 transition-all flex items-center gap-3 ${
                         active
                           ? "border-gold bg-gold/10"

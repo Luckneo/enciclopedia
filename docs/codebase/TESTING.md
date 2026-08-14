@@ -2,47 +2,40 @@
 
 ## 1) Test Stack and Commands
 
-- Primary test framework: `[TODO]` none configured for the root desktop application.
-- Assertion/mocking tools: no framework; direct exceptions/exit plus temporary monkey-patching in `scratch/test_ui.py`.
-- Existing command:
+- Primary existing framework: Python `unittest`-compatible tests.
+- Web assertion/mocking tools: `[TODO]` (no runner dependency in `package.json`).
 
-```powershell
-python scratch/test_ui.py
+```bash
+python -m unittest discover tests
+cd interfaz/enciclopedia-completa && npm run lint
+npm run build
 ```
-
-There are no verified unit, integration, E2E, or coverage commands. The script opens the GUI and reads `encyclopedia.db`, so it is not hermetic.
 
 ## 2) Test Layout
 
-- Test placement: one ad-hoc script under `scratch/`.
-- Naming: `test_ui.py`, but no runner configuration was found.
-- Setup: creates/reuses a `QApplication`, imports root modules by modifying `sys.path`, opens the production DB path, and mocks `QDialog.exec` inline.
+- Python: root `tests/test_*.py`.
+- Web automated tests/setup: `[TODO]`.
 
 ## 3) Test Scope Matrix
 
-| Scope | Covered? | Typical target | Notes |
-|-------|----------|----------------|-------|
-| Unit | No | Generators, formula parser, DB helpers | No isolated tests found |
-| Integration | Partial/ad hoc | `MainWindow` + real SQLite DB | Smoke script traverses tree/categories |
-| E2E | Partial/ad hoc | GUI selection and selected dialog launchers | No assertions, automation driver or CI |
+| Scope | Covered? | Target | Notes |
+|---|---|---|---|
+| Unit | partial | schema/repository Python | `tests/test_world_*.py` |
+| Integration | partial/manual | local API and Supabase health | no CI evidence |
+| E2E | no | navigation/editing | `[TODO]` |
 
 ## 4) Mocking and Isolation Strategy
 
-- Main mocking approach: replaces `QDialog.exec` with a lambda during the smoke run.
-- Isolation guarantees: none; the real `encyclopedia.db` is opened and the main window may initialize/alter schemas.
-- Common failure mode: headless environments, missing PyQt6, slow 1.6 GB database access, or unintended interaction with production data.
+- Python repository tests use temporary/in-memory data where shown by fixtures.
+- Web network isolation/reset strategy: `[TODO]`.
 
 ## 5) Coverage and Quality Signals
 
-- Coverage tool + threshold: `[TODO]`.
-- Current reported coverage: `[TODO]`.
-- Major gaps: database migrations/FTS triggers, imports, schema editor/destructive actions, formula evaluation, RPG combat, threads, relationships, maps, backups and export paths.
-- Database onboarding check: `PRAGMA quick_check` returned `ok`; this validates the current SQLite file, not application behavior.
+- Coverage tool/threshold/current percentage: `[TODO]`.
+- Build and lint currently act as web quality gates, not behavior tests.
 
 ## 6) Evidence
 
-- `scratch/test_ui.py`
-- `ui.py`
-- `database.py`
-- `docs/codebase/.codebase-scan.txt`
-- terminal `PRAGMA quick_check` result from onboarding
+- `tests/test_world_repository.py`
+- `tests/test_schema_registry.py`
+- `interfaz/enciclopedia-completa/package.json`

@@ -3,45 +3,38 @@
 ## 1) Integration Inventory
 
 | System | Type | Purpose | Auth model | Criticality | Evidence |
-|--------|------|---------|------------|-------------|----------|
-| SQLite/FTS5 | Embedded database | All application persistence and full-text search | Local filesystem permissions | High | `database.py`, `main.py` |
-| Local files | Filesystem | QSS themes, images/maps, CSV/Excel/PDF source data, Markdown exports, backups | OS permissions | High | `main.py`, `database.py`, `ui.py` |
-| pandas readers | File ingestion | Import structured CSV/Excel data | None | Medium | `database.py`, `importar_*.py` |
-
-No network API, queue, cloud database, authentication provider, telemetry service, OpenAI, or Ollama call was found in the active root Python application. AI integration appears only as a suggestion in `DESCRIPCION_SISTEMA.md`, not implemented code.
+|---|---|---|---|---|---|
+| Supabase | Postgres REST/Auth | remote encyclopedia records | publishable key + RLS; 0 Auth users observed 2026-08-14 | high | `world-api.ts`, `/api/health` |
+| Vercel | hosting/CD | Next deployment | Git integration | high | `DEPLOYMENT.md` |
+| SQLite | local DB | desktop/full local archive | local filesystem | high | `database.py`, `world/repository.py` |
+| Google Fonts | external CSS/fonts | typography | public | low | `src/routes/*.tsx` |
 
 ## 2) Data Stores
 
-| Store | Role | Access layer | Key risk | Evidence |
-|-------|------|--------------|----------|----------|
-| `encyclopedia.db` | Canonical worlds/lore/RPG data and FTS | `database.py`, direct `sqlite3` and Qt SQL in `ui.py` | Single large local file and dynamic schema growth | source + DB inspection |
-| `datos/backups/` | Time-spaced SQLite backups | `backup_database()` | Retention policy is not documented | `database.py` |
-| `datos/`, `datos_csv/` | Import/source corpus | Import scripts/pandas | Duplicated and variably named source files | directory inventory |
+| Store | Role | Access Module | Key risk | Evidence |
+|---|---|---|---|---|
+| Supabase `creatures/plants/minerals` | 409k normalized records | `world-api.ts` | read-only RLS, no owner identity | connector query + code |
+| `encyclopedia.db` | desktop source | `database.py`, `world/repository.py` | 1.6GB local file | workspace file |
+| localStorage | editorial drafts | `DraftEditor.tsx` | device-local only | source file |
 
 ## 3) Secrets and Credentials Handling
 
-- Credential sources: none required by inspected code.
-- Hardcoding checks: no API tokens/passwords found in active root Python files.
-- Rotation/lifecycle: not applicable until a network integration is added.
+- Sources: `.env.local` (ignored), Vercel environment variables.
+- No secret key is committed; publishable key is intentionally browser-visible.
+- Rotation lifecycle: `[TODO]`.
 
 ## 4) Reliability and Failure Behavior
 
-- SQLite enables foreign keys, WAL, `synchronous=NORMAL`, memory temp store, a 64 MiB negative cache size, and a 256 MiB mmap.
-- Backups use the native SQLite backup API in a daemon thread and skip creation if the newest backup is under 24 hours old.
-- There is no retry/backoff, timeout or circuit breaker because no network integrations were found.
-- FTS5 absence is handled by returning without indexed search setup.
+- AbortSignal exists for client reads; explicit retry/backoff and timeout are absent.
+- Production refuses localhost fallback when Supabase config is absent.
+- `/api/health` distinguishes missing config and unreachable Supabase.
 
 ## 5) Observability for Integrations
 
-- Uncaught exceptions are written to `crash.log`; some backup failures are printed.
-- No structured logs, metrics or tracing exist.
-- There is no durable audit trail for database mutations or import batches.
+- Health route exists; metrics/tracing and mutation audit are absent.
 
 ## 6) Evidence
 
-- `database.py`
-- `main.py`
-- `ui.py`
-- `importar_completo.py`
-- `datos/`
-- `datos_csv/`
+- `interfaz/enciclopedia-completa/src/lib/world-api.ts`
+- `interfaz/enciclopedia-completa/src/app/api/health/route.ts`
+- `interfaz/enciclopedia-completa/.env.example`

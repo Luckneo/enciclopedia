@@ -120,7 +120,11 @@ function TopBar({ plant }: { plant: Plant }) {
           >
             {moduleOpen ? <XIcon className="w-3 h-3" /> : <Grid3x3 className="w-3 h-3" />} MÓDULO FLORA
           </button>
-          <button className="hidden md:flex items-center gap-2 ml-1 px-3 py-1.5 glass-soft rounded-sm text-[10px] tech text-foreground/65 hover:text-gold transition-colors">
+          <button
+            type="button"
+            onClick={() => window.dispatchEvent(new Event("encyclopedia:navigate"))}
+            className="hidden md:flex items-center gap-2 ml-1 px-3 py-1.5 glass-soft rounded-sm text-[10px] tech text-foreground/65 hover:text-gold transition-colors"
+          >
             <Search className="w-3 h-3" />
             <span className="tracking-[0.25em]">BUSCAR</span>
             <kbd className="k">⌘K</kbd>

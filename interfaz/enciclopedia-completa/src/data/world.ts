@@ -488,9 +488,9 @@ export function getAncestry(id: string): Location[] {
   return chain;
 }
 
-export function linkFor(loc: Location): { to: string; params?: Record<string, string> } {
+export function linkFor(loc: Location): { to: string } {
   if (loc.type === "planet") return { to: "/planet" };
-  return { to: `${routeFor[loc.type]}/$id`, params: { id: loc.id } };
+  return { to: `${routeFor[loc.type]}/${encodeURIComponent(loc.id)}` };
 }
 
 export const planet = locations.find((l) => l.type === "planet")!;

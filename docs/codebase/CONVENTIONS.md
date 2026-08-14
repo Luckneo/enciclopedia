@@ -3,44 +3,37 @@
 ## 1) Naming Rules
 
 | Item | Rule | Example | Evidence |
-|------|------|---------|----------|
-| Files | Python `snake_case` | `utils_generators.py`, `importar_masivo.py` | root sources |
-| Functions/methods | `snake_case` | `global_excepthook`, `build_fts_index` | `main.py`, `database.py` |
-| Types | `PascalCase`, often Qt role suffix | `MainWindow`, `CsvImportThread`, `StatsDashboardDialog` | `ui.py` |
-| Constants/env vars | No consistent constant layer or env-var convention found | `[TODO]` | root sources |
-| Database tables | Global metadata plus `p_<planet_id>_<domain>` | `p_1_ciudades`, `fts_planet_1` | `database.py`, DB inspection |
+|---|---|---|---|
+| Files | PascalCase React; kebab-case utilities/routes | `DraftEditor.tsx`, `world-api.ts` | `src/` |
+| Functions | camelCase | `fetchCategoryPage` | `world-api.ts` |
+| Types | PascalCase | `WorldOverview` | `world-api.ts` |
+| Env | SCREAMING_SNAKE_CASE | `NEXT_PUBLIC_SUPABASE_URL` | `.env.example` |
 
 ## 2) Formatting and Linting
 
-- Formatter: `[TODO]` none configured.
-- Linter: `[TODO]` none configured.
-- Enforced rules: none verifiable.
-- Run commands: none recorded.
-- Observed style is mostly four-space indentation and Spanish domain identifiers/comments, with some English framework names.
+- Formatter: Prettier (`package.json`); linter: ESLint (`eslint.config.js`).
+- TypeScript is `strict`; explicit `any` is temporarily allowed for legacy modules.
+- Commands: `npm run lint`, `npm run format`, `npm run build`.
 
 ## 3) Import and Module Conventions
 
-- Standard-library, third-party, and local imports are usually near file tops, but `ui.py` also has mid-file imports.
-- Local modules are imported directly from the working directory; the application is not a Python package.
-- No public barrel/export policy exists.
+- External imports precede `@/` imports in representative files.
+- Prefer `@/` for cross-feature imports and relative imports inside a route directory.
+- No barrel-export policy is present `[TODO]`.
 
 ## 4) Error and Logging Conventions
 
-- `main.py` writes uncaught tracebacks to `crash.log` and delegates to Python's default hook.
-- UI/database operations commonly catch broad `Exception` and show a message or silently fall back; `ui.py` contains 91 broad handlers.
-- Background database backup catches exceptions and prints a message.
-- No structured logging, rotation, context schema or redaction policy was found.
+- Fetch adapters throw `Error`; route UI maps failures to Spanish messages.
+- `error.tsx` reports through `reportLovableError`; no centralized structured logger exists.
+- Secrets must never use `NEXT_PUBLIC_*`; current key is Supabase publishable by design.
 
 ## 5) Testing Conventions
 
-- Only `scratch/test_ui.py` was found for the root app; it is an executable GUI smoke script rather than a discovered unit-test suite.
-- It traverses UI tree items, selects the first row, and monkey-patches `QDialog.exec` to avoid blocking.
-- Coverage expectations and isolation rules are `[TODO]`.
+- Python tests live in `tests/test_*.py`.
+- Web test convention and coverage threshold: `[TODO]`.
 
 ## 6) Evidence
 
-- `main.py`
-- `database.py`
-- `ui.py`
-- `scratch/test_ui.py`
-- `docs/codebase/.codebase-scan.txt`
+- `interfaz/enciclopedia-completa/eslint.config.js`
+- `interfaz/enciclopedia-completa/tsconfig.json`
+- `interfaz/enciclopedia-completa/src/lib/world-api.ts`
