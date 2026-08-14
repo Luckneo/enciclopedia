@@ -1,8 +1,15 @@
-import planetImg from "@/assets/creature-egg.jpg";
-import hemisphereImg from "@/assets/creature-world.jpg";
-import coreImg from "@/assets/creature-core.jpg";
-import continentImg from "@/assets/creature-main.jpg";
-import forbiddenImg from "@/assets/creature-evolution.jpg";
+import planetImgAsset from "@/assets/creature-egg.jpg";
+import hemisphereImgAsset from "@/assets/creature-world.jpg";
+import coreImgAsset from "@/assets/creature-core.jpg";
+import continentImgAsset from "@/assets/creature-main.jpg";
+import forbiddenImgAsset from "@/assets/creature-evolution.jpg";
+import { assetUrl } from "@/lib/asset-url";
+
+const planetImg = assetUrl(planetImgAsset);
+const hemisphereImg = assetUrl(hemisphereImgAsset);
+const coreImg = assetUrl(coreImgAsset);
+const continentImg = assetUrl(continentImgAsset);
+const forbiddenImg = assetUrl(forbiddenImgAsset);
 
 export type LocationType =
   | "planet"

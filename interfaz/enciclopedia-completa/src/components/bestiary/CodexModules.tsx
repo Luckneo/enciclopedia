@@ -407,7 +407,7 @@ export const TimelineModule = memo(function TimelineModule() {
             <h3 className="font-display text-2xl text-foreground mt-1">{focused.title}</h3>
             <p className="text-foreground/65 text-sm font-light mt-2 leading-relaxed">{focused.detail}</p>
           </div>
-          <dl className="grid grid-cols-2 gap-x-6 gap-y-2 tech text-[10px] tracking-[0.25em] min-w-[220px]">
+          <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2 tech text-[10px] tracking-[0.25em] min-w-0 sm:min-w-[220px]">
             <dt className="text-gold/55">ERA</dt>
             <dd className="text-foreground/85">{focused.era}</dd>
             <dt className="text-gold/55">COORD.</dt>
@@ -634,7 +634,7 @@ export const FinalRecordModule = memo(function FinalRecordModule() {
             <Search size={11} /> VECTORES DE ATRIBUTO · 雷达
           </div>
           <RadarChart />
-          <div className="grid grid-cols-5 gap-2 w-full mt-3 tech text-[8.5px] text-foreground/55 tracking-[0.2em]">
+          <div className="grid grid-cols-2 sm:grid-cols-5 gap-2 w-full mt-3 tech text-[8.5px] text-foreground/55 tracking-[0.2em]">
             {RADAR_AXES.map((a) => (
               <div key={a.key} className="text-center">
                 <div className="text-gold/80 tabular-nums">{Math.round(a.value * 100)}</div>

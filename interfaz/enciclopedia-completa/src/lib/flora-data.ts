@@ -4,15 +4,26 @@ import {
   FlaskRound, Gem, History, Landmark, Telescope, Map as MapIcon, Activity, FileLock2,
 } from "lucide-react";
 
-import blackVine from "@/assets/plant-black-vine.png";
-import starGrass from "@/assets/plant-star-grass.png";
-import crowRoot from "@/assets/plant-crow-root.png";
-import manEater from "@/assets/plant-man-eater.png";
-import phaseSeed from "@/assets/phase-1-seed.png";
-import phaseSprout from "@/assets/phase-2-sprout.png";
-import phaseJuvenile from "@/assets/phase-3-juvenile.png";
-import phaseBloom from "@/assets/phase-4-bloom.png";
-import phaseAncestral from "@/assets/phase-5-ancestral.png";
+import blackVineAsset from "@/assets/plant-black-vine.png";
+import starGrassAsset from "@/assets/plant-star-grass.png";
+import crowRootAsset from "@/assets/plant-crow-root.png";
+import manEaterAsset from "@/assets/plant-man-eater.png";
+import phaseSeedAsset from "@/assets/phase-1-seed.png";
+import phaseSproutAsset from "@/assets/phase-2-sprout.png";
+import phaseJuvenileAsset from "@/assets/phase-3-juvenile.png";
+import phaseBloomAsset from "@/assets/phase-4-bloom.png";
+import phaseAncestralAsset from "@/assets/phase-5-ancestral.png";
+import { assetUrl } from "@/lib/asset-url";
+
+const blackVine = assetUrl(blackVineAsset);
+const starGrass = assetUrl(starGrassAsset);
+const crowRoot = assetUrl(crowRootAsset);
+const manEater = assetUrl(manEaterAsset);
+const phaseSeed = assetUrl(phaseSeedAsset);
+const phaseSprout = assetUrl(phaseSproutAsset);
+const phaseJuvenile = assetUrl(phaseJuvenileAsset);
+const phaseBloom = assetUrl(phaseBloomAsset);
+const phaseAncestral = assetUrl(phaseAncestralAsset);
 
 /* ===================== DATA ===================== */
 

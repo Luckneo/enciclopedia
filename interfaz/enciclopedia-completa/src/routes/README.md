@@ -1,21 +1,8 @@
-# Routes
+# Módulos visuales heredados
 
-TanStack Start uses **file-based routing**. Every `.tsx` file in this directory
-is a route. Do **not** create `src/pages/`, `src/routes/_app/index.tsx`, or
-`app/layout.tsx` — those are Next.js / Remix conventions. The only root layout
-is `src/routes/__root.tsx`.
+Esta carpeta conserva las implementaciones visuales migradas desde TanStack Start.
+Las rutas públicas reales están en `src/app/` y cada `page.tsx` carga únicamente su módulo.
 
-## Conventions
-
-| File | URL |
-| --- | --- |
-| `index.tsx` | `/` |
-| `about.tsx` | `/about` |
-| `users/index.tsx` | `/users` |
-| `users/$id.tsx` | `/users/:id` (dynamic — bare `$`, no curly braces) |
-| `posts/{-$category}.tsx` | `/posts/:category?` (optional segment) |
-| `files/$.tsx` | `/files/*` (splat — read via `_splat` param, never `*`) |
-| `_layout.tsx` | layout route (renders children via `<Outlet />`) |
-| `__root.tsx` | app shell — wraps every page; preserve `<Outlet />` |
-
-`routeTree.gen.ts` is auto-generated. Don't edit it by hand.
+`src/lib/router-compat.tsx` es un seam temporal para `Link`, parámetros y búsquedas. Al
+modificar un módulo, prioriza `next/link` y las interfaces nativas de App Router para
+reducir gradualmente ese adapter.

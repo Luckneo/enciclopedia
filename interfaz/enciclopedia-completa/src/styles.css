@@ -229,6 +229,10 @@ body {
 
 /* En dispositivos táctiles pequeños, los filtros de fondo son el mayor coste de GPU. */
 @media (max-width: 640px) and (pointer: coarse) {
+  body {
+    background-attachment: scroll;
+  }
+
   .glass-premium,
   .glass-soft,
   .panel {

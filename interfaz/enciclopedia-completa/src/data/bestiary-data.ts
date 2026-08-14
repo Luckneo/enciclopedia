@@ -1,9 +1,16 @@
-import refEgg from "@/assets/creature-egg.jpg";
-import refAdult from "@/assets/creature-main.jpg";
-import refWorld from "@/assets/creature-world.jpg";
-import refCore from "@/assets/creature-core.jpg";
-import refEvolution from "@/assets/creature-evolution.jpg";
-import refWounded from "@/assets/creature-main.jpg";
+import refEggAsset from "@/assets/creature-egg.jpg";
+import refAdultAsset from "@/assets/creature-main.jpg";
+import refWorldAsset from "@/assets/creature-world.jpg";
+import refCoreAsset from "@/assets/creature-core.jpg";
+import refEvolutionAsset from "@/assets/creature-evolution.jpg";
+import { assetUrl } from "@/lib/asset-url";
+
+const refEgg = assetUrl(refEggAsset);
+const refAdult = assetUrl(refAdultAsset);
+const refWorld = assetUrl(refWorldAsset);
+const refCore = assetUrl(refCoreAsset);
+const refEvolution = assetUrl(refEvolutionAsset);
+const refWounded = refAdult;
 
 export type Stage = {
   id: string;

@@ -5,12 +5,19 @@
 // "scaleRefs"         → Spatial scale references
 // "finalRecord"       → Archive footer
 
-import refPlanet from "@/assets/creature-egg.jpg";          // Total planet view
-import refContinent from "@/assets/creature-main.jpg";      // Continent / nation / city
-import refInterior from "@/assets/creature-core.jpg";       // Internal structure cutaway
-import refHemisphere from "@/assets/creature-world.jpg";    // Hemisphere / macro region
-import refForbidden from "@/assets/creature-evolution.jpg"; // Forbidden zone
-import refUnknown from "@/assets/creature-main.jpg";        // Unknown territory
+import refPlanetAsset from "@/assets/creature-egg.jpg";
+import refContinentAsset from "@/assets/creature-main.jpg";
+import refInteriorAsset from "@/assets/creature-core.jpg";
+import refHemisphereAsset from "@/assets/creature-world.jpg";
+import refForbiddenAsset from "@/assets/creature-evolution.jpg";
+import { assetUrl } from "@/lib/asset-url";
+
+const refPlanet = assetUrl(refPlanetAsset);
+const refContinent = assetUrl(refContinentAsset);
+const refInterior = assetUrl(refInteriorAsset);
+const refHemisphere = assetUrl(refHemisphereAsset);
+const refForbidden = assetUrl(refForbiddenAsset);
+const refUnknown = refContinent;
 
 export type Stage = {
   id: string;

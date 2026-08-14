@@ -39,6 +39,8 @@ const LOCAL_API = "http://127.0.0.1:8765";
 const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL?.replace(/\/$/, "");
 const SUPABASE_KEY = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
 const USE_SUPABASE = Boolean(SUPABASE_URL && SUPABASE_KEY);
+const IS_PRODUCTION_BROWSER =
+  typeof window !== "undefined" && !["localhost", "127.0.0.1"].includes(window.location.hostname);
 
 const REMOTE_CATEGORIES = [
   { id: 1, table: "creatures", name: "Criaturas", titleColumn: "common_name" },
@@ -51,7 +53,11 @@ const MAX_CACHED_PAGES = 24;
 
 export async function fetchWorldOverview(signal?: AbortSignal): Promise<WorldOverview> {
   if (!overviewRequest) {
-    overviewRequest = (USE_SUPABASE ? fetchSupabaseOverview() : fetchLocalOverview())
+    overviewRequest = (USE_SUPABASE
+      ? fetchSupabaseOverview()
+      : IS_PRODUCTION_BROWSER
+        ? Promise.reject(new Error("Supabase no está configurado en este despliegue"))
+        : fetchLocalOverview())
       .catch((error: unknown) => {
         overviewRequest = null;
         throw error;
@@ -165,7 +171,7 @@ async function fetchSupabaseCategory(
   if (query) parameters.set(category.titleColumn, `ilike.*${query.replace(/[*,()]/g, " ")}*`);
   const response = await fetch(`${SUPABASE_URL}/rest/v1/${category.table}?${parameters}`, {
     signal: options.signal,
-    headers: supabaseHeaders({ Prefer: "count=exact", Range: `${from}-${from + pageSize}` }),
+    headers: supabaseHeaders({ Prefer: "count=exact", Range: `${from}-${from + pageSize - 1}` }),
   });
   if (!response.ok) throw new Error(`No se pudo consultar Supabase (${response.status})`);
   const records = (await response.json()) as Array<Record<string, unknown>>;

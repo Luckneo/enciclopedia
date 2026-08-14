@@ -111,7 +111,7 @@ function Spline({ accent }: { accent: string }) {
       const y = h - ((v - min) / (max - min)) * (h - 8) - 4;
       return `${i === 0 ? "M" : "L"} ${x.toFixed(1)} ${y.toFixed(1)}`;
     }).join(" ");
-  }, []);
+  }, [max, min]);
   return (
     <svg viewBox={`0 0 ${w} ${h}`} className="w-full h-[70px] spline-glow">
       <defs>

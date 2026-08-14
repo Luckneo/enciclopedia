@@ -13,6 +13,7 @@ dist-ssr
 .output
 .next
 .vercel
+.eslintcache
 .vinxi
 .tanstack/**
 .nitro

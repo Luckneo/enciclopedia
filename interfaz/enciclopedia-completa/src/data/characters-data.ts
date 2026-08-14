@@ -1,9 +1,17 @@
-import refMain from "@/assets/char-main.jpg";
-import refFront from "@/assets/char-front.jpg";
-import refWeapon from "@/assets/char-weapon.jpg";
-import refBack from "@/assets/char-back.jpg";
-import refCasual from "@/assets/char-casual.jpg";
-import refPortrait from "@/assets/char-portrait.jpg";
+import refMainAsset from "@/assets/char-main.jpg";
+import refFrontAsset from "@/assets/char-front.jpg";
+import refWeaponAsset from "@/assets/char-weapon.jpg";
+import refBackAsset from "@/assets/char-back.jpg";
+import refCasualAsset from "@/assets/char-casual.jpg";
+import refPortraitAsset from "@/assets/char-portrait.jpg";
+import { assetUrl } from "@/lib/asset-url";
+
+const refMain = assetUrl(refMainAsset);
+const refFront = assetUrl(refFrontAsset);
+const refWeapon = assetUrl(refWeaponAsset);
+const refBack = assetUrl(refBackAsset);
+const refCasual = assetUrl(refCasualAsset);
+const refPortrait = assetUrl(refPortraitAsset);
 
 export type Stage = {
   id: string;

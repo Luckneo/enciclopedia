@@ -79,7 +79,7 @@ function SuperContinentModule() {
         </DataWindow>
 
         <DataWindow title="Resource Matrix" cn="资源矩阵" accent={loc.accent} className="lg:col-span-2">
-          <div className="grid grid-cols-6 gap-1">
+          <div className="grid grid-cols-3 sm:grid-cols-6 gap-1">
             {Array.from({ length: 48 }).map((_, i) => {
               const v = (Math.sin(i * 0.7) + Math.cos(i * 1.3)) * 0.3 + 0.5;
               return (

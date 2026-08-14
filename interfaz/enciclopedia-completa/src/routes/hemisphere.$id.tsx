@@ -88,7 +88,7 @@ function HemisphereModule() {
 
         {/* Civilisation density grid */}
         <DataWindow title="Civilisation Distribution" cn="文明" accent={loc.accent}>
-          <div className="grid grid-cols-8 gap-1">
+          <div className="grid grid-cols-4 sm:grid-cols-8 gap-1">
             {Array.from({ length: 48 }).map((_, i) => {
               const intensity = Math.sin(i * 1.3) * 0.5 + 0.5;
               return (

@@ -76,7 +76,7 @@ export function Dossier({
         <CornerBrackets />
 
         {/* LEFT NAV — section index */}
-        <nav className="w-[260px] shrink-0 border-r border-gold/15 flex flex-col bg-black/30">
+        <nav className="w-[72px] sm:w-[180px] md:w-[260px] shrink-0 border-r border-gold/15 flex flex-col bg-black/30 max-sm:[&_span]:hidden">
           <div className="px-5 py-5 border-b border-gold/15">
             <div className="cn-title text-gold text-base tracking-[0.3em]">百科全书</div>
             <div className="tech text-[9px] text-gold/50 tracking-[0.4em] mt-1">

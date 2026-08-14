@@ -1097,7 +1097,7 @@ function ArchiveSection({
           </div>
           <div className="mt-3 pt-3 border-t border-white/5">
             <div className="tech text-[9px] text-gold/60 tracking-[0.3em] mb-2">SALTO RÁPIDO</div>
-            <div className="grid grid-cols-8 gap-1">
+            <div className="grid grid-cols-4 sm:grid-cols-8 gap-1">
               {TABS.map((t, i) => (
                 <button
                   key={t}
@@ -1616,4 +1616,3 @@ function SectionHeader({ icon: Icon, kicker, title, right }: { icon: React.Compo
     </div>
   );
 }
-
